@@ -9,8 +9,7 @@ private:
   static ScreenManager* m_instance;
   Object m_screenQuad;
   unsigned int m_sceneFBO;
-  unsigned int m_sceneHDRTexture;
-  unsigned int m_sceneBloomTexture;
+  unsigned int m_sceneTextures[2];
   float m_prevExposure;
   ScreenManager();
 

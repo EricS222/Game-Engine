@@ -4,7 +4,8 @@ in vec3 transformedNorm;
 in vec2 uvCoord;
 in mat3 TBN;
 
-out vec4 FragColor;
+layout (location = 0) out vec4 FragColor;
+layout (location = 1) out vec4 BrightColor;
 
 // x,y,z,type(point/spotlight),r,g,b,strength
 const int numLightAttr = 8;
@@ -71,5 +72,8 @@ void main()
 	
 	FragColor += lightStrength * ( (ambient + diffuse) * diffuseColor * lightColor + specularStrength * specular * specularColor );
   }
+
+	float threshold = 3.0;
+	BrightColor = length(FragColor.rgb) > threshold ? FragColor : vec4(0.0);
 
 };
